@@ -1,0 +1,118 @@
+.navigation {
+    /* POSITIONING WITHIN DOCUMENT FLOW */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    /* DSIPLAY */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 9%;
+}
+
+.navigation .logo {
+    background: var(--white);
+    border-right: 20px solid var(--green);
+    border-radius: 6px;
+    box-shadow: var(--green-glow);
+    animation: 2.5s border-glow infinite;
+    transition: .4s all ease;
+    cursor: pointer;
+    opacity: .7;
+}
+
+.navigation .logo:hover {
+    opacity: 1;
+}
+
+/* GLOW ANIMATION */
+@keyframes border-glow {
+    0% {
+        border-right: 20px solid var(--green);
+    }
+
+    50% {
+        border-right: 20px solid transparent;
+    }
+
+    100% {
+        border-right: 20px solid var(--green); 
+    }
+}
+ 
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.link-item {
+    list-style: none;
+    font-weight: 600;
+}
+
+.link {
+    text-decoration: none;
+    position: relative;
+    color: var(--white-alt);
+    letter-spacing: 1px;
+    transition: .3s all ease;
+    cursor: pointer;
+}
+
+.link::before {
+    content: '';
+    position: absolute;
+    background: var(--white);
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: .3s all ease;
+}
+
+.link:hover::before {
+    width: 100%;
+}
+
+.cta-btn {
+    border: none;
+    border-left: 3px solid var(--red);
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    background: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: .5px;
+    color: var(--white);
+    opacity: .7;
+    transition: .3s all ease;
+    cursor: pointer;
+}
+
+.cta-btn:hover {
+    opacity: 1;
+}
+
+.cta-btn fa-icon {
+    transition: .3s all ease;
+}
+
+.cta-btn:hover fa-icon {
+    color: var(--green);
+    transform: translateX(6px);
+}
+
+@media (max-width: 1040px) {
+    .navigation {
+        padding: 1rem 2%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
